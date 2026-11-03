@@ -1,0 +1,16 @@
+# Terraform
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+.terraform.lock.hcl
+crash.log
+*.tfplan
+
+# Terraform sensitive/local values
+*.tfvars
+!*.tfvars.example
+
+# OS / Editor
+.DS_Store
+.vscode/
+.idea/
