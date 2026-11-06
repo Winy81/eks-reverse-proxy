@@ -23,3 +23,6 @@ output "node_group_name" {
   value = aws_eks_node_group.main.node_group_name
 }
 
+output "service_a_ecr_url" {
+  value = aws_ecr_repository.service_a.repository_url
+}
