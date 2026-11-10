@@ -26,3 +26,7 @@ output "node_group_name" {
 output "service_a_ecr_url" {
   value = aws_ecr_repository.service_a.repository_url
 }
+
+output "service_b_ecr_url" {
+  value = aws_ecr_repository.service_b.repository_url
+}
