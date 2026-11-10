@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: service-b
+  namespace: adam-eks-reverse-proxy
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: service-b
+
+  template:
+    metadata:
+      labels:
+        app: service-b
+
+    spec:
+      containers:
+        - name: service-b
+          image: 362099375729.dkr.ecr.eu-central-1.amazonaws.com/eks-reverse-proxy-service-b:latest
+
+          ports:
+            - containerPort: 8080
