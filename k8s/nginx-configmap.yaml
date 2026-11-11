@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: ConfigMap
+
+metadata:
+  name: nginx-config
+  namespace: adam-eks-reverse-proxy
+
+data:
+  nginx.conf: |
+    events {}
+
+    http {
+      server {
+        listen 80;
+
+        location /api/sa {
+          proxy_pass http://service-a:80;
+        }
+
+        location /api/sb {
+          proxy_pass http://service-b:80;
+        }
+      }
+    }
