@@ -14,10 +14,12 @@ data:
         listen 80;
 
         location /api/sa {
+          proxy_set_header Host localhost;
           proxy_pass http://service-a:80;
         }
 
         location /api/sb {
+          proxy_set_header Host localhost;
           proxy_pass http://service-b:80;
         }
       }
