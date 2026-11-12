@@ -65,3 +65,18 @@ resource "aws_iam_openid_connect_provider" "eks" {
     data.tls_certificate.eks_oidc.certificates[0].sha1_fingerprint
   ]
 }
+
+resource "aws_iam_role" "lb_controller" {
+  name               = "${var.project_name}-lb-controller-role"
+  assume_role_policy = data.aws_iam_policy_document.lb_controller_trust.json
+}
+
+resource "aws_iam_policy" "lb_controller" {
+  name   = "${var.project_name}-lb-controller-policy"
+  policy = file("${path.module}/policies/aws-load-balancer-controller.json")
+}
+
+resource "aws_iam_role_policy_attachment" "lb_controller" {
+  role       = aws_iam_role.lb_controller.name
+  policy_arn = aws_iam_policy.lb_controller.arn
+}
