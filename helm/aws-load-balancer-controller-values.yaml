@@ -1,0 +1,11 @@
+clusterName: eks-reverse-proxy-cluster
+
+region: eu-central-1
+
+vpcId: ""
+
+serviceAccount:
+  create: true
+  name: aws-load-balancer-controller
+  annotations:
+    eks.amazonaws.com/role-arn: ""

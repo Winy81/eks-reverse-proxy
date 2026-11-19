@@ -30,3 +30,8 @@ output "service_a_ecr_url" {
 output "service_b_ecr_url" {
   value = aws_ecr_repository.service_b.repository_url
 }
+
+output "lb_controller_role_arn" {
+  description = "IAM role ARN for AWS Load Balancer Controller"
+  value       = aws_iam_role.lb_controller.arn
+}
